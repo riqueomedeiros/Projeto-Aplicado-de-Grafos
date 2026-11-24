@@ -24,7 +24,7 @@ Projeto da disciplina de Grafo.s O HospitalFlow modela setores, acessos e pontos
 
 ## Instalação em cópia limpa
 
-Para usar o ZIP, extraia-o e abra um terminal na pasta `hospitalflow` que contém `app.py`.
+Para usar o ZIP, extraia-o e abra um terminal na pasta `hospitalflow` que contém `app.py`, sempre abra o terminal na pasta do repositório.
 
 ```bash
 git clone "https://github.com/riqueomedeiros/Projeto-Aplicado-de-Grafos.git" hospitalflow
