@@ -1,0 +1,24 @@
+{
+  "nome": "Hospital simulado · cenário normal",
+  "nota": "Topologia didática baseada nas telas originais do projeto. Os tempos são simulados.",
+  "setores": [
+    {"id": "recepcao", "nome": "Recepção"},
+    {"id": "pronto-socorro", "nome": "Pronto-Socorro"},
+    {"id": "farmacia", "nome": "Farmácia"},
+    {"id": "laboratorio", "nome": "Laboratório"},
+    {"id": "uti", "nome": "UTI"},
+    {"id": "centro-cirurgico", "nome": "Centro Cirúrgico"},
+    {"id": "saida", "nome": "Saída de Emergência", "saida": true}
+  ],
+  "corredores": [
+    {"id": "recepcao-ps", "origem": "recepcao", "destino": "pronto-socorro", "tempo_min": 2},
+    {"id": "recepcao-farmacia", "origem": "recepcao", "destino": "farmacia", "tempo_min": 1},
+    {"id": "ps-uti", "origem": "pronto-socorro", "destino": "uti", "tempo_min": 5},
+    {"id": "farmacia-lab", "origem": "farmacia", "destino": "laboratorio", "tempo_min": 1.5},
+    {"id": "lab-uti", "origem": "laboratorio", "destino": "uti", "tempo_min": 1},
+    {"id": "uti-centro", "origem": "uti", "destino": "centro-cirurgico", "tempo_min": 2},
+    {"id": "centro-ps", "origem": "centro-cirurgico", "destino": "pronto-socorro", "tempo_min": 2},
+    {"id": "lab-saida", "origem": "laboratorio", "destino": "saida", "tempo_min": 2},
+    {"id": "farmacia-saida", "origem": "farmacia", "destino": "saida", "tempo_min": 3}
+  ]
+}

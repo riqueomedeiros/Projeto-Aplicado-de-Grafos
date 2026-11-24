@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HospitalFlow · Rotas hospitalares</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <div class="shell">
+    <aside class="sidebar">
+      <p class="brand">HospitalFlow</p>
+      <p>Rotas hospitalares</p>
+      <label for="algoritmo">Algoritmo</label>
+      <select id="algoritmo">
+        <option value="bfs">BFS · Menos corredores</option>
+        <option value="dfs">DFS · Exploração</option>
+        <option value="dijkstra">Dijkstra · Menor tempo</option>
+      </select>
+    </aside>
+    <main id="conteudo">
+      <header class="page-header">
+        <div>
+          <h1>Rotas e interdições hospitalares</h1>
+          <p id="cenario-nota"></p>
+        </div>
+        <div class="field">
+          <label for="cenario">Cenário de dados</label>
+          <select id="cenario" data-api-base="{{ url_for('carregar_cenario', cenario='__cenario__') }}">
+            {% for id, (rotulo, arquivo) in cenarios.items() %}
+              <option value="{{ id }}">{{ rotulo }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </header>
+      <noscript><p class="error">Ative o JavaScript para consultar o grafo e simular interdições.</p></noscript>
+      <p id="erro" class="error" role="alert" hidden></p>
+
+      <div id="painel" class="workspace" hidden>
+        <div class="card controls">
+          <h2>Consultar setores</h2>
+          <form id="consulta">
+            <div class="field" id="campo-modo" hidden>
+              <label for="modo">Operação DFS</label>
+              <select id="modo">
+                <option value="explorar">Explorar alas</option>
+                <option value="evacuar">Rotas de evacuação</option>
+                <option value="ciclo">Detectar ciclo</option>
+              </select>
+            </div>
+            <div class="field" id="campo-origem">
+              <label for="origem">Origem</label>
+              <select id="origem"></select>
+            </div>
+            <div class="field" id="campo-destino">
+              <label id="rotulo-destino" for="destino">Destino</label>
+              <select id="destino"></select>
+            </div>
+            <button id="consultar" class="primary">Calcular rota</button>
+          </form>
+
+          <section class="closures" aria-labelledby="interdicoes">
+            <h2 id="interdicoes">Simular interdições</h2>
+            <div class="field">
+              <label for="corredor">Corredor</label>
+              <select id="corredor"></select>
+            </div>
+            <div class="actions">
+              <button id="interditar" type="button" class="danger">Interditar</button>
+              <button id="liberar" type="button">Liberar todos</button>
+            </div>
+            <ul id="bloqueios" aria-label="Corredores interditados"></ul>
+          </section>
+        </div>
+
+        <section class="card graph-card" aria-labelledby="mapa-titulo">
+          <h2 id="mapa-titulo">Grafo hospitalar</h2>
+          <p id="mapa-nota" class="muted"></p>
+          <div class="graph-scroll">
+            <!-- As posições e conexões do desenho vêm do cenário selecionado. -->
+            <svg id="grafo" role="group" aria-labelledby="mapa-titulo" viewBox="0 0 720 410"></svg>
+          </div>
+          <ul class="legend" aria-label="Legenda">
+            <li><span></span>Livre</li>
+            <li><span class="selected"></span>Rota selecionada</li>
+            <li><span class="closed"></span>Interditado</li>
+          </ul>
+        </section>
+        <section class="card output" aria-labelledby="resultado-titulo">
+          <h2 id="resultado-titulo">Resultado</h2>
+          <p id="mensagem" role="status"></p>
+          <div id="detalhes"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

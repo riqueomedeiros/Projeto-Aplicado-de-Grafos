@@ -1,0 +1,22 @@
+{
+  "nome": "Hospital Derriford · percursos publicados de diagnóstico por imagem",
+  "nota": "Recorte de percursos publicados pelo University Hospitals Plymouth NHS Trust. Tempos em minutos estimados para a simulação.",
+  "fonte": "https://www.plymouthhospitals.nhs.uk/imaging-find-us/",
+  "setores": [
+    {"id": "entrada-principal", "nome": "Entrada principal · nível 6", "saida": true},
+    {"id": "loja", "nome": "Loja League of Friends"},
+    {"id": "raio-x-leste", "nome": "Raio-X Leste"},
+    {"id": "raio-x-oeste", "nome": "Raio-X Oeste"},
+    {"id": "fim-corredor", "nome": "Fim do corredor principal"},
+    {"id": "mansfield", "nome": "Centro Mansfield · nível 6"},
+    {"id": "entrada-maternidade", "nome": "Entrada da maternidade · nível 5", "saida": true}
+  ],
+  "corredores": [
+    {"id": "principal-loja", "origem": "entrada-principal", "destino": "loja", "tempo_min": 1},
+    {"id": "loja-leste", "origem": "loja", "destino": "raio-x-leste", "tempo_min": 0.5},
+    {"id": "loja-oeste", "origem": "loja", "destino": "raio-x-oeste", "tempo_min": 1},
+    {"id": "principal-corredor", "origem": "entrada-principal", "destino": "fim-corredor", "tempo_min": 2},
+    {"id": "corredor-mansfield", "origem": "fim-corredor", "destino": "mansfield", "tempo_min": 1},
+    {"id": "mansfield-maternidade", "origem": "mansfield", "destino": "entrada-maternidade", "tempo_min": 2}
+  ]
+}

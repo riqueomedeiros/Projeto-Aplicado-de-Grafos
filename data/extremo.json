@@ -1,0 +1,12 @@
+{
+  "nome": "Hospital simulado · cenário extremo",
+  "nota": "Dois setores conectados por um tempo zero e uma saída isolada.",
+  "setores": [
+    {"id": "triagem", "nome": "Triagem"},
+    {"id": "observacao", "nome": "Observação"},
+    {"id": "saida", "nome": "Saída de Emergência", "saida": true}
+  ],
+  "corredores": [
+    {"id": "triagem-observacao", "origem": "triagem", "destino": "observacao", "tempo_min": 0}
+  ]
+}

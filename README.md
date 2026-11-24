@@ -24,10 +24,10 @@ Projeto da disciplina de Grafo.s O HospitalFlow modela setores, acessos e pontos
 
 ## Instalação em cópia limpa
 
-Quando o repositório remoto estiver disponível, substitua `URL_DO_REPOSITORIO` pela URL de clonagem. Para usar o ZIP, extraia-o e abra um terminal na pasta `hospitalflow` que contém `app.py`.
+Para usar o ZIP, extraia-o e abra um terminal na pasta `hospitalflow` que contém `app.py`.
 
 ```bash
-git clone "URL_DO_REPOSITORIO" hospitalflow
+git clone "https://github.com/riqueomedeiros/Projeto-Aplicado-de-Grafos.git" hospitalflow
 cd hospitalflow
 ```
 

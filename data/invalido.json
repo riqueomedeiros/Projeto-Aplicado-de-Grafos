@@ -1,0 +1,11 @@
+{
+  "nome": "Hospital simulado · cenário inválido",
+  "nota": "O peso negativo deve impedir o carregamento.",
+  "setores": [
+    {"id": "triagem", "nome": "Triagem"},
+    {"id": "observacao", "nome": "Observação"}
+  ],
+  "corredores": [
+    {"id": "triagem-observacao", "origem": "triagem", "destino": "observacao", "tempo_min": -2}
+  ]
+}
