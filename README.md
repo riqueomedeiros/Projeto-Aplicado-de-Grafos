@@ -13,7 +13,7 @@ Projeto da disciplina de Grafo.s O HospitalFlow modela setores, acessos e pontos
 | Nome | RA |
 | --- | --- |
 | Henrique de Oliveira Medeiros | 1681432612019 |
-| Ana Beatriz | 1681432612001 |
+| Ana Beatriz Gonçalves dos Santos | 1681432612001 |
 | Gabriel Lasinskais | 1681432612010 |
 
 ## Pré-requisitos
